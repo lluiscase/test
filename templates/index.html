@@ -16,6 +16,7 @@
             <tr>
                 <td>{{ task.content }}</td>
                 <td>{{ task.date_created.date() }}</td>
+                <td>{{ task.options }}</td>
                 <td>
                     <a href="/delete/{{task.id}}">Delete</a>
                     <br>
@@ -26,8 +27,8 @@
         </table>
         <form action="/" method="POST">
             <input type="text" name="content" id="content" >
-            <input type="radio" name="comprar" id="">
-            <input type="radio" name="estocar" id="">
+            <input type="radio" name="options" id="compras">Compras</input>
+            <input type="radio" name="options" id="subir">Subir para a cozinha</input>
             <input type="submit" value="Add Task">
         </form>
         

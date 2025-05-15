@@ -15,6 +15,7 @@ class Todo(db.Model):
     id: Mapped[int]= mapped_column(primary_key=True)
     content: Mapped[str] = mapped_column(String(200),nullable=False)
     date_created: Mapped[datetime] = mapped_column(default=datetime.now)
+    
 
 def __repr__(self):
     return '<Task %r>' % self.id
@@ -23,6 +24,7 @@ def __repr__(self):
 def index():
     if request.method == 'POST':
         task_content = request.form['content']
+        type_content = request.form.getlist('options')
         new_task = Todo(content=task_content)
         try:
             db.session.add(new_task)
